@@ -30,14 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +44,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,33 +66,6 @@
             this.panel1.Size = new System.Drawing.Size(618, 44);
             this.panel1.TabIndex = 0;
             // 
-            // panel6
-            // 
-            this.panel6.BackgroundImage = global::EDP_Act_4.Properties.Resources.user25px;
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel6.Location = new System.Drawing.Point(575, 6);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(33, 33);
-            this.panel6.TabIndex = 4;
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImage = global::EDP_Act_4.Properties.Resources.SETTING_removebg_preview;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel5.Location = new System.Drawing.Point(538, 6);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(31, 33);
-            this.panel5.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel3.Location = new System.Drawing.Point(499, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(33, 33);
-            this.panel3.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -102,6 +75,7 @@
             this.label2.Size = new System.Drawing.Size(116, 26);
             this.label2.TabIndex = 2;
             this.label2.Text = "DASHBOARD";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -128,32 +102,6 @@
             this.panel2.Size = new System.Drawing.Size(143, 416);
             this.panel2.TabIndex = 1;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(188)))), ((int)(((byte)(189)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(2, 264);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 37);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "USER";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BackgroundImage = global::EDP_Act_4.Properties.Resources.searchicon;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel4.Location = new System.Drawing.Point(2, 89);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(25, 20);
-            this.panel4.TabIndex = 5;
-            // 
             // SearchBox
             // 
             this.SearchBox.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -168,9 +116,9 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(28, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 17);
+            this.label4.Size = new System.Drawing.Size(89, 17);
             this.label4.TabIndex = 11;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.Text = "to Dashboard";
             // 
             // label3
             // 
@@ -181,6 +129,7 @@
             this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "Welcome!";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // logoutbut
             // 
@@ -247,6 +196,7 @@
             this.button7.TabIndex = 4;
             this.button7.Text = "PRODUCTS";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button4
             // 
@@ -283,6 +233,59 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "EMPLOYEE";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(188)))), ((int)(((byte)(189)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(2, 264);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 37);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "USER";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackgroundImage = global::EDP_Act_4.Properties.Resources.user25px;
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel6.Location = new System.Drawing.Point(575, 6);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(33, 33);
+            this.panel6.TabIndex = 4;
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = global::EDP_Act_4.Properties.Resources.SETTING_removebg_preview;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel5.Location = new System.Drawing.Point(538, 6);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(31, 33);
+            this.panel5.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel3.Location = new System.Drawing.Point(499, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(33, 33);
+            this.panel3.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackgroundImage = global::EDP_Act_4.Properties.Resources.searchicon;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel4.Location = new System.Drawing.Point(2, 89);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(25, 20);
+            this.panel4.TabIndex = 5;
             // 
             // Dashboard
             // 

@@ -1,16 +1,63 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace EDP_Act_4
 {
     public partial class LogIn : Form
     {
-        private string authenticatedUserName;
-
         public LogIn()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogInLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fpassLinkL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // When the "Forgot Password?" link is clicked, open the ForgotPass form
+            ForgotPass forgotPassForm = new ForgotPass();
+            forgotPassForm.Show();
+
+            this.Hide();
+        }
+
+        private void SignUplinklabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SignUp signUpForm = new SignUp();
+            signUpForm.Show();
+
+            this.Hide();
         }
 
         private void logInButton_Click(object sender, EventArgs e)
@@ -24,13 +71,17 @@ namespace EDP_Act_4
                 return;
             }
 
+            
             if (AuthenticateUser(email, password))
             {
-                authenticatedUserName = GetUserName(email);
-                OpenDashboardForm(authenticatedUserName);
+                
+                Dashboard dashboardForm = new Dashboard();
+                dashboardForm.Show();
+                this.Hide();
             }
             else
             {
+                
                 MessageBox.Show("Invalid email or password. Please try again.");
             }
         }
@@ -44,10 +95,10 @@ namespace EDP_Act_4
                 try
                 {
                     connection.Open();
-                    string query = "SELECT COUNT(*) FROM users_account WHERE email = @Email AND password = @Password";
+                    string query = "SELECT COUNT(*) FROM users_account WHERE email = @email AND password = @password";
                     MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@password", password);
                     int count = Convert.ToInt32(command.ExecuteScalar());
                     return count > 0;
                 }
@@ -59,55 +110,5 @@ namespace EDP_Act_4
             }
         }
 
-        private string GetUserName(string email)
-        {
-            string connectionString = "Server=localhost;Port=3306;Database=act_2_edp;Uid=root;Pwd=danica;";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT CONCAT(FirstName, ' ', LastName) AS FullName FROM users_account WHERE email = @Email";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Email", email);
-                    string fullName = command.ExecuteScalar() as string;
-                    return fullName;
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                    return null;
-                }
-            }
-        }
-
-
-
-        private void OpenDashboardForm(string userName)
-        {
-            Dashboard dashboardForm = new Dashboard(userName);
-            dashboardForm.Show();
-            this.Hide();
-        }
-
-        private void fpassLinkL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide(); // Hide the current SignUp form
-            ForgotPass f = new ForgotPass();
-            f.Show(); // Show the LogIn form again
-        }
-
-        private void SignUplinklabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide(); // Hide the current SignUp form
-            SignUp f = new SignUp();
-            f.Show(); // Show the LogIn form again
-        }
-
-        private void LogIn_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
